@@ -1,11 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "podcast_episodes",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
-    "description": "Create your blog content"
+    "singularName": "podcast-episode",
+    "pluralName": "podcast-episodes",
+    "displayName": "Podcast Episode",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,8 +16,7 @@
       "type": "string"
     },
     "description": {
-      "type": "text",
-      "maxLength": 80
+      "type": "text"
     },
     "slug": {
       "type": "uid",
@@ -30,20 +29,26 @@
       "allowedTypes": [
         "images",
         "files",
-        "videos"
+        "videos",
+        "audios"
       ]
     },
-    "author": {
+    "series": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      "target": "api::podcast-serie.podcast-serie",
+      "inversedBy": "episodes"
     },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+    "audio": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "blocks": {
       "type": "dynamiczone",
@@ -51,6 +56,7 @@
         "shared.media",
         "shared.quote",
         "shared.rich-text",
+        "shared.seo",
         "shared.slider"
       ]
     }
