@@ -1,8 +1,11 @@
 {
-  "name": "my-app-name",
-  "version": "0.1.0",
+  "name": "techbuzz-cms",
   "private": true,
+  "version": "0.1.0",
   "description": "A Strapi application",
+    "author": {
+      "name": "Oretan Barnabas"
+    },
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
