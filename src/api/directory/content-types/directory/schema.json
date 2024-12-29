@@ -21,11 +21,11 @@
       "type": "uid",
       "targetField": "title"
     },
-    "directory_listings": {
+    "directory_listing": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::directory-listing.directory-listing",
-      "mappedBy": "category"
+      "inversedBy": "categories"
     }
   }
 }
