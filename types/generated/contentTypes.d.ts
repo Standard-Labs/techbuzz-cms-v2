@@ -549,6 +549,7 @@ export interface ApiDirectoryListingDirectoryListing
     pricing: Schema.Attribute.Enumeration<['Free', 'Paid', 'Both']>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    sponsored: Schema.Attribute.Boolean;
     tagline: Schema.Attribute.String;
     title: Schema.Attribute.String;
     twitter_handle: Schema.Attribute.String;
@@ -739,6 +740,58 @@ export interface ApiPodcastSeriePodcastSerie
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSocialSocial extends Struct.CollectionTypeSchema {
+  collectionName: 'socials';
+  info: {
+    displayName: 'Social';
+    pluralName: 'socials';
+    singularName: 'social';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    block: Schema.Attribute.DynamicZone<
+      [
+        'shared.slider',
+        'shared.seo',
+        'shared.rich-text',
+        'shared.quote',
+        'shared.media',
+      ]
+    >;
+    caption: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    embed: Schema.Attribute.RichText;
+    external_link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social.social'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    source: Schema.Attribute.Enumeration<
+      [
+        'X',
+        'Instagram',
+        'Linkedin',
+        'Thread',
+        'Youtube',
+        'Facebook',
+        'Spotify',
+        'Others',
+      ]
+    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1265,6 +1318,7 @@ declare module '@strapi/strapi' {
       'api::open-deal.open-deal': ApiOpenDealOpenDeal;
       'api::podcast-episode.podcast-episode': ApiPodcastEpisodePodcastEpisode;
       'api::podcast-serie.podcast-serie': ApiPodcastSeriePodcastSerie;
+      'api::social.social': ApiSocialSocial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

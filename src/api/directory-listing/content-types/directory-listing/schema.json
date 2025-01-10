@@ -90,6 +90,9 @@
     },
     "affiliate_registration_link": {
       "type": "string"
+    },
+    "sponsored": {
+      "type": "boolean"
     }
   }
 }

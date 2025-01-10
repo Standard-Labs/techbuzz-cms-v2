@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "socials",
+  "info": {
+    "singularName": "social",
+    "pluralName": "socials",
+    "displayName": "Social"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "caption": {
+      "type": "text"
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "X",
+        "Instagram",
+        "Linkedin",
+        "Thread",
+        "Youtube",
+        "Facebook",
+        "Spotify",
+        "Others"
+      ]
+    },
+    "block": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.slider",
+        "shared.seo",
+        "shared.rich-text",
+        "shared.quote",
+        "shared.media"
+      ]
+    },
+    "embed": {
+      "type": "richtext"
+    },
+    "external_link": {
+      "type": "string"
+    }
+  }
+}
