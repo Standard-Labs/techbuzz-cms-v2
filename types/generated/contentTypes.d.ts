@@ -515,6 +515,7 @@ export interface ApiDirectoryListingDirectoryListing
     draftAndPublish: true;
   };
   attributes: {
+    affiliate_registration_link: Schema.Attribute.String;
     blocks: Schema.Attribute.DynamicZone<
       [
         'shared.media',
@@ -532,17 +533,25 @@ export interface ApiDirectoryListingDirectoryListing
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    creator_email: Schema.Attribute.Email;
+    demo_video_link: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     link: Schema.Attribute.String;
+    linkedin: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::directory-listing.directory-listing'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    owner: Schema.Attribute.Boolean;
+    pricing: Schema.Attribute.Enumeration<['Free', 'Paid', 'Both']>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    tagline: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    twitter_handle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -564,10 +573,6 @@ export interface ApiDirectoryDirectory extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    directory_listing: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::directory-listing.directory-listing'
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

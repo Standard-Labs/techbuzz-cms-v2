@@ -38,8 +38,7 @@
     "categories": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::directory.directory",
-      "mappedBy": "directory_listing"
+      "target": "api::directory.directory"
     },
     "cover": {
       "type": "media",
@@ -51,6 +50,46 @@
         "videos",
         "audios"
       ]
+    },
+    "pricing": {
+      "type": "enumeration",
+      "enum": [
+        "Free",
+        "Paid",
+        "Both"
+      ]
+    },
+    "creator_email": {
+      "type": "email"
+    },
+    "twitter_handle": {
+      "type": "string"
+    },
+    "linkedin": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "boolean"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "demo_video_link": {
+      "type": "string"
+    },
+    "affiliate_registration_link": {
+      "type": "string"
     }
   }
 }

@@ -20,12 +20,6 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
-    },
-    "directory_listing": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::directory-listing.directory-listing",
-      "inversedBy": "categories"
     }
   }
 }
