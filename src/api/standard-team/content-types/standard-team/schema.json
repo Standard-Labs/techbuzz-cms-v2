@@ -31,6 +31,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::team.team"
+    },
+    "profilePicture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
