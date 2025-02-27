@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "standard_teams",
+  "info": {
+    "singularName": "standard-team",
+    "pluralName": "standard-teams",
+    "displayName": "Standard-team",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "team": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team.team"
+    }
+  }
+}
