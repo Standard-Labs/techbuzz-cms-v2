@@ -825,6 +825,9 @@ export interface ApiStandardTeamStandardTeam
       'api::standard-team.standard-team'
     > &
       Schema.Attribute.Private;
+    profilePicture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     role: Schema.Attribute.String;
     team: Schema.Attribute.Relation<'oneToMany', 'api::team.team'>;
