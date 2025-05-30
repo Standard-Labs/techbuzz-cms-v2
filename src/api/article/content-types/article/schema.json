@@ -53,6 +53,18 @@
         "shared.rich-text",
         "shared.slider"
       ]
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "article"
+    },
+    "imageCredit": {
+      "type": "string"
+    },
+    "timeToRead": {
+      "type": "string"
     }
   }
 }
