@@ -39,6 +39,19 @@
     },
     "role": {
       "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "xUrl": {
+      "type": "string"
+    },
+    "officialEmail": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
