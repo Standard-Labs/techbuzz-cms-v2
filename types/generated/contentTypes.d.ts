@@ -424,6 +424,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
         maxLength: 80;
       }>;
     imageCredit: Schema.Attribute.String;
+    keypoints: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -431,10 +432,23 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    secFilingType: Schema.Attribute.Enumeration<
+      [
+        'Form-10-K',
+        'Form-10-Q',
+        'Form-S-1',
+        'Form-S-4',
+        'Form-20-F',
+        'Form-8-K',
+      ]
+    >;
     slug: Schema.Attribute.UID<'title'>;
     tags: Schema.Attribute.Relation<'oneToMany', 'api::category.category'>;
     timeToRead: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['sec filing', 'news', 'update', 'review', 'feature']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

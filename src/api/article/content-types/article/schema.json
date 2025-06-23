@@ -65,6 +65,31 @@
     },
     "timeToRead": {
       "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "sec filing",
+        "news",
+        "update",
+        "review",
+        "feature"
+      ]
+    },
+    "keypoints": {
+      "type": "json"
+    },
+    "secFilingType": {
+      "type": "enumeration",
+      "enum": [
+        "Form-10-K",
+        "Form-10-Q",
+        "Form-S-1",
+        "Form-S-4",
+        "Form-20-F",
+        "Form-8-K"
+      ],
+      "required": false
     }
   }
 }
